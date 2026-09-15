@@ -246,6 +246,7 @@ body {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .add-btn {
@@ -264,6 +265,22 @@ body {
 
 .add-btn:hover { background: var(--accent-strong); }
 .add-btn:active { transform: scale(0.96); }
+
+.undo-btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1.5px solid var(--surface-border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.undo-btn:hover { border-color: var(--accent); color: var(--accent-strong); }
+.undo-btn:active { transform: scale(0.96); }
 
 /* ---------- Tanque (gauge de água) ---------- */
 .tank-big {
@@ -359,6 +376,24 @@ body {
   padding: 16px 12px;
   box-shadow: var(--shadow);
   text-align: center;
+  position: relative;
+}
+
+.rank-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border-radius: 999px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-card .name {
@@ -397,6 +432,62 @@ body {
   margin-top: 10px;
 }
 
+/* ---------- Ranking da semana ---------- */
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ranking-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.ranking-row .medal {
+  font-size: 18px;
+  font-weight: 700;
+  width: 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ranking-row .rname {
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+  width: 110px;
+}
+
+.ranking-row .rbar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  overflow: hidden;
+}
+
+.ranking-row .rbar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--tide));
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ranking-row .rtotal {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent-strong);
+  width: 48px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 720px) {
   .team-grid { grid-template-columns: repeat(2, 1fr); }
@@ -404,6 +495,7 @@ body {
   .tank-big { width: 100px; height: 130px; justify-self: start; }
   .brand h1 { font-size: 22px; }
   .me-info .total { font-size: 40px; }
+  .ranking-row .rname { width: 78px; font-size: 13px; }
 }
 
 /* ---------- Toast ---------- */

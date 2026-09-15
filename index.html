@@ -37,8 +37,15 @@
           <span>ml</span>
           <button id="save-meta">salvar</button>
         </div>
+        <div class="meta-row">
+          <span>Tamanho da garrafa:</span>
+          <input type="number" id="garrafa-input" step="50" min="50" />
+          <span>ml</span>
+          <button id="save-garrafa">salvar</button>
+        </div>
         <div class="add-buttons">
-          <button class="add-btn" data-ml="500">+ 500 ml</button>
+          <button class="add-btn" id="add-btn">+ 500 ml</button>
+          <button class="undo-btn" id="undo-btn" title="Desfazer último registro">↩ desfazer</button>
         </div>
       </div>
       <div class="tank-big">
@@ -54,6 +61,11 @@
       <div class="team-grid" id="team-grid"></div>
     </section>
 
+    <section class="chart-card" style="margin-bottom: 24px;">
+      <h2 class="section-title">Ranking da semana</h2>
+      <div class="ranking-list" id="ranking-semana"></div>
+    </section>
+
     <section class="chart-card">
       <h2 class="section-title">Evolução do dia</h2>
       <canvas id="chart" height="90"></canvas>
@@ -67,6 +79,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
